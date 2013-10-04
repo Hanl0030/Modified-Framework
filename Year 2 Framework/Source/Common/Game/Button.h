@@ -9,10 +9,6 @@ using std::string;
 
 //To use
 
-#include "../Constants/Constants.h"
-#include "../Global Count/ObjectCounter.h"
-#include "../OpenGL/OpenGL.h"
-#include "../Input/MouseListener.h"
 //Class dependant on    
 //                      InterfaceObject.h
 //                      class InterfaceObject

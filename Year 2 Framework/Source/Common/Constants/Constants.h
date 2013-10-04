@@ -3,7 +3,7 @@
 
 #include "Game/GameConstants.h"
 #include "Interface Objects\Interface Objects Constants.h"
-#include "Mouse\Mouse Constants.h"
+
 
 #if WIN32
 #include "../../Windows/Windows Game/Win32Constants.h"

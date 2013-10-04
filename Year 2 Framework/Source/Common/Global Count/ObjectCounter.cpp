@@ -13,3 +13,6 @@ int g_NumberOfObjects = 0; //How many objects there are in the world?
 int g_NumberOfInterfaceFamily = 0; //How many objects have been created that are part of the interface family
 int g_NumberOfInterfaceObject_InterfaceObject = 0; //How many specific interface objects are there? Should be 0 because it's abstract
 int g_NumberOfButtons_InterfaceObject = 0; //How many specific buttons of type interface object 
+
+const bool GAME_DEBUG_MODE = true;
+const int SOIL_TOTAL_TEXTURES = 2; //how many textures are we loading into soil

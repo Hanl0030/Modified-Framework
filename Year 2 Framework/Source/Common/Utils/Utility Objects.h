@@ -10,6 +10,16 @@
 #define UNION_TYPE_CIRCLEF 3
 #define UNION_TYPE_CIRCLEI 4
 
+struct GameTime
+{
+    double m_TimeSinceCreation;
+    int m_Alive;
+    int m_Dead; 
+    int m_State;
+    //more variables to come regarding GameTime
+    
+
+};    
 
 
 union Flag
@@ -173,6 +183,7 @@ union uParam
     RectI recti;
     RectF rectf;
     ReturnFlag rflag;
+    GameTime gTime;
     OpenGLTexture * texgl; //Is this safe?
 
 };

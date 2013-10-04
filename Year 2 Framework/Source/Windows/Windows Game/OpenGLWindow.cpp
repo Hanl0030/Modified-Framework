@@ -334,6 +334,10 @@ void OpenGLWindow::resize(GLsizei aWidth, GLsizei aHeight)
 		glLoadIdentity();
 		glOrtho(0.0, m_WindowWidth, m_WindowHeight, 0.0, -1.0, 1.0);
 		glMatrixMode(GL_MODELVIEW);
+        //Enable blending... The alpha channel before drawing
+        glEnable(GL_BLEND);
+        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+        glEnable(GL_TEXTURE_2D);
 	}
 }
 

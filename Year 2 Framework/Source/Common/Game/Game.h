@@ -3,10 +3,11 @@
 
 #include <vector>
 #include "../Screen Manager/Screen.h"
+#include <gl\GL.h>
 
 class OpenGLTexture;
-class InterfaceObject;
-
+class InterfaceObject; //For InterfaceObjects
+class SOILTextureInfo;
 class Game : public Screen
 {
 public:
@@ -50,9 +51,9 @@ private:
   
   //Timer variable to delay reseting the game has ended
   double m_GameOverTimer;
-
-  //Testing Objects...
-  InterfaceObject * testButton;
+  GLuint m_Texture;
+  OpenGLTexture * m_DevTexture;
+  SOILTextureInfo * m_SoilTexture;
 };
 
 #endif
