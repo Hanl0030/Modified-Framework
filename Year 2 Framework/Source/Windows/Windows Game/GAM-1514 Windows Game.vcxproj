@@ -94,15 +94,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Common\Constants\Game\GameConstants.cpp" />
+    <ClCompile Include="..\..\Common\Constants\Interface Objects\Interface Objects Constants.cpp" />
     <ClCompile Include="..\..\Common\Constants\Mouse\Mouse Constants.cpp" />
-    <ClCompile Include="..\..\Common\Game\BoundingCircle.cpp" />
-    <ClCompile Include="..\..\Common\Game\BoundingRectangle.cpp" />
-    <ClCompile Include="..\..\Common\Game\ButtonObject.cpp" />
-    <ClCompile Include="..\..\Common\Game\Collideable.cpp" />
+    <ClCompile Include="..\..\Common\Game\Button.cpp" />
     <ClCompile Include="..\..\Common\Game\Game.cpp" />
-    <ClCompile Include="..\..\Common\Game\GameObject.cpp" />
-    <ClCompile Include="..\..\Common\Game\Image.cpp" />
-    <ClCompile Include="..\..\Common\Game\InterfaceObject.cpp" />
+    <ClCompile Include="..\..\Common\Game\Interface Object.cpp" />
+    <ClCompile Include="..\..\Common\Global Count\ObjectCounter.cpp" />
     <ClCompile Include="..\..\Common\Input\InputConstants.cpp" />
     <ClCompile Include="..\..\Common\Input\InputEvent.cpp" />
     <ClCompile Include="..\..\Common\Input\InputListener.cpp" />
@@ -162,15 +159,12 @@
   <ItemGroup>
     <ClInclude Include="..\..\Common\Constants\Constants.h" />
     <ClInclude Include="..\..\Common\Constants\Game\GameConstants.h" />
+    <ClInclude Include="..\..\Common\Constants\Interface Objects\Interface Objects Constants.h" />
     <ClInclude Include="..\..\Common\Constants\Mouse\Mouse Constants.h" />
-    <ClInclude Include="..\..\Common\Game\BoundingCircle.h" />
-    <ClInclude Include="..\..\Common\Game\BoundingRectangle.h" />
-    <ClInclude Include="..\..\Common\Game\ButtonObject.h" />
-    <ClInclude Include="..\..\Common\Game\Collideable.h" />
+    <ClInclude Include="..\..\Common\Game\Button.h" />
     <ClInclude Include="..\..\Common\Game\Game.h" />
-    <ClInclude Include="..\..\Common\Game\GameObject.h" />
-    <ClInclude Include="..\..\Common\Game\Image.h" />
-    <ClInclude Include="..\..\Common\Game\InterfaceObject.h" />
+    <ClInclude Include="..\..\Common\Game\Interface Object.h" />
+    <ClInclude Include="..\..\Common\Global Count\ObjectCounter.h" />
     <ClInclude Include="..\..\Common\Input\Input.h" />
     <ClInclude Include="..\..\Common\Input\InputConstants.h" />
     <ClInclude Include="..\..\Common\Input\InputEvent.h" />

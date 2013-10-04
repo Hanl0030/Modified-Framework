@@ -182,7 +182,14 @@ void OpenGLWindow::processEvent(UINT aMessage, WPARAM aWParam, LPARAM aLParam)
             
             
 			break;
-
+		case WM_RBUTTONUP:
+			{
+				int positionX = GET_X_LPARAM(aLParam);
+				int positionY = GET_Y_LPARAM(aLParam);
+				InputManager::getInstance()->handleMouseRightClickUp(positionX, positionY);
+				
+			}
+            break;
 		case WM_MOUSEMOVE:
 			{
 				//
@@ -201,8 +208,6 @@ void OpenGLWindow::processEvent(UINT aMessage, WPARAM aWParam, LPARAM aLParam)
 				m_LastMouseX = positionX;
 				m_LastMouseY = positionY;
 				//
-				MouseListener::getInstance()->setPosition(positionX,positionY);
-				MouseListener::getInstance()->triggerMove();
 			}
 			break;
 
@@ -211,8 +216,7 @@ void OpenGLWindow::processEvent(UINT aMessage, WPARAM aWParam, LPARAM aLParam)
 				int positionX = GET_X_LPARAM(aLParam);
 				int positionY = GET_Y_LPARAM(aLParam);
 				InputManager::getInstance()->handleMouseLeftClickDown(positionX, positionY);
-                MouseListener::getInstance()->setPosition(positionX, positionY);
-				MouseListener::getInstance()->triggerLeftDown();
+
 
 			}
 			break;
@@ -222,8 +226,7 @@ void OpenGLWindow::processEvent(UINT aMessage, WPARAM aWParam, LPARAM aLParam)
 				int positionX = GET_X_LPARAM(aLParam);
 				int positionY = GET_Y_LPARAM(aLParam);
 				InputManager::getInstance()->handleMouseLeftClickUp(positionX, positionY);
-                MouseListener::getInstance()->setPosition(positionX, positionY);
-				MouseListener::getInstance()->triggerLeftUp();
+
 				
 			}
 			break;
@@ -233,22 +236,13 @@ void OpenGLWindow::processEvent(UINT aMessage, WPARAM aWParam, LPARAM aLParam)
 				int positionX = GET_X_LPARAM(aLParam);
 				int positionY = GET_Y_LPARAM(aLParam);
 				InputManager::getInstance()->handleMouseRightClickDown(positionX, positionY);
-				MouseListener::getInstance()->setPosition(positionX, positionY);
-				MouseListener::getInstance()->triggerRightDown();
+
+				
 				
 			}
 			break;
 
-		case WM_RBUTTONUP:
-			{
-				int positionX = GET_X_LPARAM(aLParam);
-				int positionY = GET_Y_LPARAM(aLParam);
-				InputManager::getInstance()->handleMouseRightClickUp(positionX, positionY);
-				MouseListener::getInstance()->setPosition(positionX, positionY);
-				MouseListener::getInstance()->triggerRightUp();
-				
-			}
-            break;
+		
     }
 }
 

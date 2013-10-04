@@ -1,23 +1,19 @@
 #ifndef MOUSE_LISTENER_H
 #define MOUSE_LISTENER_H
 
+#include "../Utils/Utility Objects.h"
 //This is a simpleton Class
 //Mouse events will be tracked and recorded in here
 
 class MouseListener
 {
 private:
-	int m_MouseX;
-	int m_MouseY;
+	float m_MouseX;
+	float m_MouseY;
 
-
-	bool m_MouseStateLeftDown;
-	bool m_MouseStateRightDown;
-	bool m_MouseStateLeftUp;
-	bool m_MouseStateRightUp;
+	bool m_MouseStateRight;
+	bool m_MouseStateLeft;
 	bool m_MouseStateMove;
-
-	int m_MouseState;
 
 	MouseListener();
 	~MouseListener();
@@ -29,13 +25,22 @@ public:
 	static void cleanupInstance();
 
 
-	void setPosition(int mouseX, int mouseY);
-	void triggerLeftDown();
-	void triggerRightDown();
+	void setPosition(float mouseX, float mouseY);
+	void triggerLeftDown(); //inverts the left
+	void triggerRightDown(); //inverts the right
 	void triggerLeftUp();
 	void triggerRightUp();
 	void triggerMove();
 	void defaultMove();
+
+	//return position
+	Vector2F getPosition();
+	void getPosition(float &x, float &y);
+	
+	//return states
+	bool getMouseLeft();
+	bool getMouseRight();
+	bool getMouseMove();
 };
 
 #endif

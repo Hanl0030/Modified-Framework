@@ -3,15 +3,9 @@
 
 #include <vector>
 #include "../Screen Manager/Screen.h"
-#include "../Game/ButtonObject.h"
-#include "../Game/InterfaceObject.h"
-#include "../Game/GameObject.h"
-#include "../Game/Collideable.h"
-#include "../Game/BoundingCircle.h"
-#include "../Game/BoundingRectangle.h"
-
 
 class OpenGLTexture;
+class InterfaceObject;
 
 class Game : public Screen
 {
@@ -57,7 +51,8 @@ private:
   //Timer variable to delay reseting the game has ended
   double m_GameOverTimer;
 
-  OpenGLTexture * m_Texture;
+  //Testing Objects...
+  InterfaceObject * testButton;
 };
 
 #endif

@@ -56,11 +56,14 @@
     <Filter Include="Libraries\jsoncpp">
       <UniqueIdentifier>{c5d2eb9c-b720-42c5-9fae-0fef8e19f9c3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\NH_Screen">
-      <UniqueIdentifier>{2002a138-7a52-44c1-843b-701cda488211}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Constants\MouseConstants">
       <UniqueIdentifier>{b19187c2-fbee-4536-9ced-604b5d728277}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Global Count">
+      <UniqueIdentifier>{32e8c3e5-1d68-49bd-9152-d484d58a368f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Constants\Interface Constants">
+      <UniqueIdentifier>{d35ecdff-22fc-4733-8350-9476f6fd8904}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -229,35 +232,26 @@
     <ClCompile Include="..\..\Common\Input\MouseEvent.cpp">
       <Filter>Source Files\Input</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Common\Game\GameObject.cpp">
-      <Filter>Source Files\Game</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Common\Game\InterfaceObject.cpp">
-      <Filter>Source Files\Game</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Common\Game\ButtonObject.cpp">
-      <Filter>Source Files\Game</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Common\Utils\Utility Objects.cpp">
       <Filter>Source Files\Utils</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Common\Game\Collideable.cpp">
-      <Filter>Source Files\Game</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Common\Game\BoundingCircle.cpp">
-      <Filter>Source Files\Game</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Common\Game\BoundingRectangle.cpp">
-      <Filter>Source Files\Game</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Common\Game\Image.cpp">
-      <Filter>Source Files\Game</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Common\Input\MouseListener.cpp">
       <Filter>Source Files\Input</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Common\Constants\Mouse\Mouse Constants.cpp">
       <Filter>Source Files\Constants\MouseConstants</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\Game\Interface Object.cpp">
+      <Filter>Source Files\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\Global Count\ObjectCounter.cpp">
+      <Filter>Source Files\Global Count</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\Constants\Interface Objects\Interface Objects Constants.cpp">
+      <Filter>Source Files\Constants\Interface Constants</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\Game\Button.cpp">
+      <Filter>Source Files\Game</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -426,35 +420,26 @@
     <ClInclude Include="..\..\Common\Input\MouseEvent.h">
       <Filter>Source Files\Input</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Common\Game\GameObject.h">
-      <Filter>Source Files\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Common\Game\InterfaceObject.h">
-      <Filter>Source Files\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Common\Game\ButtonObject.h">
-      <Filter>Source Files\Game</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Common\Utils\Utility Objects.h">
       <Filter>Source Files\Utils</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Common\Game\Collideable.h">
-      <Filter>Source Files\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Common\Game\BoundingCircle.h">
-      <Filter>Source Files\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Common\Game\BoundingRectangle.h">
-      <Filter>Source Files\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Common\Game\Image.h">
-      <Filter>Source Files\Game</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Common\Input\MouseListener.h">
       <Filter>Source Files\Input</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Common\Constants\Mouse\Mouse Constants.h">
       <Filter>Source Files\Constants\MouseConstants</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Game\Interface Object.h">
+      <Filter>Source Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Global Count\ObjectCounter.h">
+      <Filter>Source Files\Global Count</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Constants\Interface Objects\Interface Objects Constants.h">
+      <Filter>Source Files\Constants\Interface Constants</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Game\Button.h">
+      <Filter>Source Files\Game</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
