@@ -53,8 +53,6 @@ SOILTexture::SOILTexture(const char* filename)
     m_Filename = filename;
     //Default Loading Method being used
     m_LoadAlpha = true;
-    m_LoadWrapper = WRAP_REPEAT;
-    m_LoadFilter = FILTER_LINEAR;
     SOILTextureManager::getInstance()->loadTexture(m_Filename.c_str(),m_TextureID,m_SourceWidth,m_SourceHeight);
  
 }
@@ -64,24 +62,11 @@ SOILTexture::SOILTexture(const char* filename, bool loadAlpha)
     //specific alpha
     m_LoadAlpha = loadAlpha;
     //Default Loading Wrappers and Filters
-    m_LoadWrapper = WRAP_REPEAT;
-    m_LoadFilter = FILTER_LINEAR;
     SOILTextureManager::getInstance()->loadTexture(m_Filename.c_str(),m_TextureID,m_SourceWidth,m_SourceHeight,m_LoadAlpha);
     
     
 }
-SOILTexture::SOILTexture(const char* filename, bool loadAlpha, unsigned int wrapper, unsigned int filter)
-{
-    m_Filename = filename;
-    //specific alpha
-    m_LoadAlpha = loadAlpha;
-    //Default Loading Wrappers and Filters
-    m_LoadWrapper = wrapper;
-    m_LoadFilter = filter;
-    //I wont do the checking here i'll do it in texture manager
-    SOILTextureManager::getInstance()->loadTexture(m_Filename.c_str(),m_TextureID,m_SourceWidth,m_SourceHeight,m_LoadAlpha,m_LoadWrapper,m_LoadFilter);
-    
-}
+
 SOILTexture::~SOILTexture()
 {
     if(GAME_DEBUG_MODE == false)

@@ -6,5 +6,5 @@ extern int g_NumberOfInterfaceFamily;
 extern int g_NumberOfInterfaceObject_InterfaceObject;
 extern int g_NumberOfButtons_InterfaceObject;
 extern const bool GAME_DEBUG_MODE;
-extern const int SOIL_TOTAL_TEXTURES;
+
 #endif

@@ -148,6 +148,8 @@
     <ClCompile Include="..\..\Common\OpenGL\OpenGLTextureManager.cpp" />
     <ClCompile Include="..\..\Common\Screen Manager\Screen.cpp" />
     <ClCompile Include="..\..\Common\Screen Manager\ScreenManager.cpp" />
+    <ClCompile Include="..\..\Common\Texture Loader\DrawInfo.cpp" />
+    <ClCompile Include="..\..\Common\Texture Loader\Renderer.cpp" />
     <ClCompile Include="..\..\Common\Texture Loader\SOIL Texture.cpp" />
     <ClCompile Include="..\..\Common\Texture Loader\SOIL TextureLibrary.cpp" />
     <ClCompile Include="..\..\Common\Texture Loader\SOIL TextureManager.cpp" />
@@ -216,6 +218,7 @@
     <ClInclude Include="..\..\Common\Screen Manager\Screen.h" />
     <ClInclude Include="..\..\Common\Screen Manager\ScreenManager.h" />
     <ClInclude Include="..\..\Common\Texture Loader\OpenGL SOIL.h" />
+    <ClInclude Include="..\..\Common\Texture Loader\Renderer.h" />
     <ClInclude Include="..\..\Common\Texture Loader\SOIL Texture.h" />
     <ClInclude Include="..\..\Common\Texture Loader\SOIL TextureLibrary.h" />
     <ClInclude Include="..\..\Common\Texture Loader\SOIL TextureManager.h" />

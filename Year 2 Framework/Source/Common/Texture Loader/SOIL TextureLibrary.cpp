@@ -23,18 +23,15 @@ void SOILTextureLibrary::cleanupInstance()
 }
 SOILTextureLibrary::SOILTextureLibrary()
 {
-    m_Cursor = 0;
-    m_ArrayOfTextures = 0;
-    m_ArrayOfTextures = new SOILTextureInfo * [SOIL_TOTAL_TEXTURES];
-    //if the array is 0 something went wrong
-    for(int i = 0; i < SOIL_TOTAL_TEXTURES; i++)
-    {
-        m_ArrayOfTextures[i] = 0;
-    }
 }
 SOILTextureLibrary::~SOILTextureLibrary()
 {
-    delete [] m_ArrayOfTextures;
+    for(int i = 0; i < m_TextureInfo.size() ; i++)
+    {
+        delete m_TextureInfo.at(i);
+        m_TextureInfo.at(i) = 0;
+    }
+    m_TextureInfo.clear();
 }
 void SOILTextureLibrary::loadTextureLibrary()
 {
@@ -49,9 +46,9 @@ void SOILTextureLibrary::cleanupTextureLibrary()
 
 SOILTextureInfo * SOILTextureLibrary::getInfo(int index)
 {
-    if(m_ArrayOfTextures[index] != 0)
-    {
-        return m_ArrayOfTextures[index];
+    if(index >= 0 && index < m_TextureInfo.size()) //error checking
+    { 
+        return m_TextureInfo.at(index); //return the specified index
     }
 
 
@@ -61,14 +58,8 @@ SOILTextureInfo * SOILTextureLibrary::getInfo(int index)
 
 void SOILTextureLibrary::addToLibrary(SOILTextureInfo * textureInfo)
 {
-    if(m_Cursor >= SOIL_TOTAL_TEXTURES || m_Cursor < 0) //if were out of bounds dont write to memory
-    {
-        MessageBox(NULL,"SOILTextureLibrary Cursor out of bounds", "Error Add to to Library", MB_OK);
-        return;
-    }
-    if(m_ArrayOfTextures[m_Cursor] == 0) //If were writing on is equal to 0
-    {
-        m_ArrayOfTextures[m_Cursor] = textureInfo; //overwrite it
-    }
-    m_Cursor ++; //move the cursor
+   if(textureInfo != NULL)
+   {
+       m_TextureInfo.push_back(textureInfo);
+   }
 }

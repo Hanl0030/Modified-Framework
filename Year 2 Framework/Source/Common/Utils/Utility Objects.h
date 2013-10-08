@@ -97,7 +97,13 @@ struct ColorUChar
     unsigned char b;
     unsigned char a;
 };
-
+struct ColorFloat
+{
+   float r;
+   float g;
+   float b;
+   float a;
+};
 struct CircleI
 {
     //not m_Position Is Centrered
@@ -178,6 +184,7 @@ union uParam
     Vector3F vec3f;
     Vector3D vec3d;
     ColorUChar coluc;
+    ColorFloat colf;
     CircleI circi;
     CircleF circf;
     RectI recti;

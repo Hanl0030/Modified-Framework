@@ -337,7 +337,10 @@ void OpenGLWindow::resize(GLsizei aWidth, GLsizei aHeight)
         //Enable blending... The alpha channel before drawing
         glEnable(GL_BLEND);
         glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-        glEnable(GL_TEXTURE_2D);
+        /*glEnable(GL_LIGHTING); //enable lighting
+        glEnable(GL_LIGHT0); //enable light source 1
+        glEnable(GL_LIGHT1); //enable light source 2
+        glEnable(GL_NORMALIZE);*/
 	}
 }
 

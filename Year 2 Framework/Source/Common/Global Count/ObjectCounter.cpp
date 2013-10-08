@@ -15,4 +15,3 @@ int g_NumberOfInterfaceObject_InterfaceObject = 0; //How many specific interface
 int g_NumberOfButtons_InterfaceObject = 0; //How many specific buttons of type interface object 
 
 const bool GAME_DEBUG_MODE = true;
-const int SOIL_TOTAL_TEXTURES = 2; //how many textures are we loading into soil

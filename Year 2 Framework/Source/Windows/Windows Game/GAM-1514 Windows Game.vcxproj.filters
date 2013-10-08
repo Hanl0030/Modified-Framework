@@ -259,9 +259,6 @@
     <ClCompile Include="..\..\Common\Constants\Unit\Unit Constants.cpp">
       <Filter>Source Files\Constants\Unit Constants</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Common\Texture Loader\SOIL TextureManager">
-      <Filter>Source Files\Texture Loader</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Common\Texture Loader\SOIL TextureManager.cpp">
       <Filter>Source Files\Texture Loader</Filter>
     </ClCompile>
@@ -269,6 +266,12 @@
       <Filter>Source Files\Texture Loader</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Common\Texture Loader\SOIL TextureLibrary.cpp">
+      <Filter>Source Files\Texture Loader</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\Texture Loader\Renderer.cpp">
+      <Filter>Source Files\Texture Loader</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\Texture Loader\DrawInfo.cpp">
       <Filter>Source Files\Texture Loader</Filter>
     </ClCompile>
   </ItemGroup>
@@ -475,6 +478,9 @@
       <Filter>Source Files\Texture Loader</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Common\Texture Loader\SOIL TextureLibrary.h">
+      <Filter>Source Files\Texture Loader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Texture Loader\Renderer.h">
       <Filter>Source Files\Texture Loader</Filter>
     </ClInclude>
   </ItemGroup>

@@ -13,8 +13,7 @@ public:
 
     void loadTexture(const char * filename,GLuint &textureID,int &width,int &height); //loads a texture to my default settings
     void loadTexture(const char * filename,GLuint &textureID,int &width,int &height, bool loadAlpha);
-    void loadTexture(const char * filename,GLuint &textureID,int &width,int &height, bool loadAlpha, unsigned int wrapper, unsigned int filter);
-
+    
     void deleteTexture(GLuint textureID);
 private:
     static SOILTextureManager * s_Instance;
@@ -22,6 +21,7 @@ private:
     SOILTextureManager();
     ~SOILTextureManager();
 
+    //friend class SOILTextureLibrary;
 
 };
 

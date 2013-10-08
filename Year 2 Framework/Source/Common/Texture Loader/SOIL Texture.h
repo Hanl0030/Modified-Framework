@@ -29,7 +29,6 @@ class SOILTexture
 public:
     SOILTexture(const char* filename);
     SOILTexture(const char* filename, bool loadAlpha);
-    SOILTexture(const char* filename, bool loadAlpha, unsigned int wrapper, unsigned int filter);
     ~SOILTexture();
 
     
@@ -42,8 +41,6 @@ private:
     std::string m_Filename;
     //Advanced settings for texture loading
     bool m_LoadAlpha; //Do we load the alpha into source and destination?
-    unsigned int m_LoadWrapper;
-    unsigned int m_LoadFilter;
 };
 
 #endif

@@ -3,6 +3,8 @@
 
 #include "OpenGL SOIL.h"
 
+using std::vector;
+
 class SOILTextureInfo;
 //This class will store all of the textures loaded by SOIL
 //This class will also be simpleton
@@ -15,15 +17,15 @@ public:
     void loadTextureLibrary();
     void cleanupTextureLibrary();
     SOILTextureInfo * getInfo(int index);
-    void addToLibrary(SOILTextureInfo * textureInfo);
+    
 private:
+    void addToLibrary(SOILTextureInfo * textureInfo = NULL);
     static SOILTextureLibrary * s_Instance;
     SOILTextureLibrary();
     ~SOILTextureLibrary();
 
-    SOILTextureInfo ** m_ArrayOfTextures;
-
-    int m_Cursor; //Which index are we creating on
+    vector < SOILTextureInfo * > m_TextureInfo;
+    friend class SOILTextureManager; //Giver SOIL Texture Manager access to our private members
 };
 
 #endif

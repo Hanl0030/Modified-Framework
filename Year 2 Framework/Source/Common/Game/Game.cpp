@@ -17,6 +17,11 @@
 //can tint the texture
 #include "../Texture Loader/SOIL Texture.h"
 #include "../Texture Loader/SOIL TextureLibrary.h"
+#include "../Texture Loader/Renderer.h"
+/*#include <memory>
+#include <cassert>
+#include <process.h>*/
+#include "../../Windows/Windows Game/glext.h"
 
 
 
@@ -24,51 +29,60 @@ Game::Game()
 {
     SOILTextureLibrary::getInstance()->loadTextureLibrary();
     m_SoilTexture = SOILTextureLibrary::getInstance()->getInfo(0);
-    /*m_Texture = SOIL_load_OGL_texture
-        (
-        "../../../Resources/MenuScreenBackground.png",
-        SOIL_LOAD_AUTO,
-        SOIL_CREATE_NEW_ID,
-        NULL//SOIL_FLAG_INVERT_Y
-        );*/
-    
-    //glBindTexture(GL_TEXTURE_2D, m_Texture);
-    //glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR);
-	//glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR);
-    m_DevTexture = NULL;
-    m_DevTexture = new OpenGLTexture("Bush");
-    
-    //Soil example texture loading
-    glGenTextures(1,&m_Texture); //make a texture
-    glBindTexture(GL_TEXTURE_2D,m_Texture); //bind the texture
 
-    int width, height; //make variables to store image size
-    unsigned char*image = SOIL_load_image("../../../Resources/MenuScreenBackground.png",&width,&height,0,SOIL_LOAD_RGBA); //load the image
-    //returns 0 if error loading image
-    if(image == 0)
-    {
-        MessageBox(NULL,"Error",NULL,MB_OK);
-    }
-    glTexImage2D(GL_TEXTURE_2D,0,GL_RGBA,width,height,0,GL_RGBA,GL_UNSIGNED_BYTE,image); //load the image in the opengl buffer
+    m_RectDrawInfo = new RectangleDrawInfo();
+    //setup the rect draw info
+    m_RectDrawInfo->setColorVertex(RENDERER_VERTEX_1,1.0f,0.0f,0.0f,1.0f);
+    m_RectDrawInfo->setColorVertex(RENDERER_VERTEX_2,0.0f,1.0f,0.0f,1.0f);
+    m_RectDrawInfo->setColorVertex(RENDERER_VERTEX_3,0.0f,0.0f,1.0f,1.0f);
+    m_RectDrawInfo->setColorVertex(RENDERER_VERTEX_4,0.5f,0.5f,0.5f,0.5f);
+    m_RectDrawInfo->setRectangle(0.0f,0.0f,100.0f,100.0f);
 
-    SOIL_free_image_data(image); //free the image data
-    //apply filters and shit
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    //glGenerateMipmap(GL_TEXTURE_2D);
+    m_TextureDrawInfo = new TextureDrawInfo();
+    //setup the texture draw info
+    m_TextureDrawInfo->setColor(1.0f,1.0f,1.0f,1.0);
+    m_TextureDrawInfo->setRectangle(250.0f,0.0f,100.0f,100.0f);
+    m_TextureDrawInfo->setUV(0.0f,1.0f,0.0f,1.0f);
+    m_TextureDrawInfo->m_TextureInfo = m_SoilTexture;
+    m_TextureDrawInfo->setColor(0.0f,0.0f,0.0f,1.0f);
+    m_TextureDrawInfo->setColorVertex(RENDERER_VERTEX_3,0.5f,0.5f,0.5f,1.0f);
 
+    m_LineDrawInfo = new LineDrawInfo(100.0f,200.0f,200.0f,300.0f,1.0f,1.0f,1.0f,1.0f,0.0f);
+    m_TriangleDrawInfo = new TriangleDrawInfo();
+    Vector2F tempPosition;
+    tempPosition.x = 0.0f;
+    tempPosition.y = 0.0f;
+    m_TriangleDrawInfo->setPoint(RENDERER_VERTEX_1,tempPosition);
+    tempPosition.x = 100.0f;
+    tempPosition.y = 0.0f;
+    m_TriangleDrawInfo->setPoint(RENDERER_VERTEX_2,tempPosition);
+    tempPosition.x = 100.0f;
+    tempPosition.y = 100.0f;
+    m_TriangleDrawInfo->setPoint(RENDERER_VERTEX_3,tempPosition);
+    m_TriangleDrawInfo->setColor(1.0f,1.0f,1.0f,1.0);
+    m_TriangleDrawInfo->setAnchor(RENDERER_VERTEX_CENTER);
     
+    //m_TriangleDrawInfo->
+   
 }
 
 
 Game::~Game()
 {
-	if(m_DevTexture != NULL)
+	if(m_RectDrawInfo != 0)
     {
-        delete m_DevTexture;
-        m_DevTexture = 0;
+        delete m_RectDrawInfo;
+        m_RectDrawInfo = 0;
+    }
+    if(m_TextureDrawInfo != 0)
+    {
+        delete m_TextureDrawInfo;
+        m_TextureDrawInfo = 0;
+    }
+    if(m_LineDrawInfo != 0)
+    {
+        delete m_LineDrawInfo;
+        m_LineDrawInfo = 0;
     }
 }
 
@@ -81,31 +95,10 @@ void Game::update(double aDelta)
 
 void Game::paint()
 {
-    //Draws a semi transparent rectangle
-    /*glColor4ub(255,0,0,25);
-	glBegin(GL_QUADS);
-    glVertex2f(0.0f,0.0f);
-    glVertex2f(100.0f,0.0f);
-    glVertex2f(100.0f,100.0f);
-    glVertex2f(0.0f,100.0f);
-    glEnd();*/
-    
-    glColor4ub(255,255,255,150);
-    //glRotatef(180.0f,0.0f,0.0f,0.0f);
-    glBindTexture(GL_TEXTURE_2D,m_SoilTexture->getTextureID());
-    //glBindTexture(GL_TEXTURE_2D, m_DevTexture->getId()); //Devil, is ok....
-	glBegin(GL_QUADS);
-    glTexCoord2f(0.0f, 0.0f);glVertex2f(0.0f,0.0f);
-    glTexCoord2f(0.5f, 0.0f);glVertex2f(1024.0f,0.0f);
-    glTexCoord2f(0.5f, 0.5);glVertex2f(1024.0f,768.0f);
-    glTexCoord2f(0.0f, 0.5);glVertex2f(0.0f,768.0f);
-    glEnd();
-    //glRotatef(180.0f,0.0f,0.0f,0.0f);
-    
-
-    //Note the OpenGLRenderer is not affected by my raw opengl commands
-    //OpenGLRenderer::getInstance()->drawRectangle(0.0f,0.0f,400.0f,500.0f);
-    
+    Renderer::getInstance()->drawRectangle(*m_RectDrawInfo);
+    Renderer::getInstance()->drawTexture(*m_TextureDrawInfo);
+    Renderer::getInstance()->drawLine(*m_LineDrawInfo);
+    Renderer::getInstance()->drawTriangle(*m_TriangleDrawInfo);
 }
 
 void Game::reset()

@@ -3,11 +3,16 @@
 
 #include <vector>
 #include "../Screen Manager/Screen.h"
-#include <gl\GL.h>
-
+#include "../OpenGL/OpenGL.h"
 class OpenGLTexture;
 class InterfaceObject; //For InterfaceObjects
 class SOILTextureInfo;
+class RectangleDrawInfo;
+class TextureDrawInfo;
+class LineDrawInfo;
+class TriangleDrawInfo;
+
+
 class Game : public Screen
 {
 public:
@@ -54,6 +59,10 @@ private:
   GLuint m_Texture;
   OpenGLTexture * m_DevTexture;
   SOILTextureInfo * m_SoilTexture;
+  RectangleDrawInfo * m_RectDrawInfo;
+  TextureDrawInfo * m_TextureDrawInfo;
+  LineDrawInfo * m_LineDrawInfo;
+  TriangleDrawInfo * m_TriangleDrawInfo;
 };
 
 #endif
